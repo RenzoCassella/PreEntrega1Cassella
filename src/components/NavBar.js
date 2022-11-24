@@ -9,7 +9,7 @@ const NavBar = ()  => {
 return (
     <Navbar bg="danger" expand="lg">
     <Container>
-        <Navbar.Brand href="#home">Somos River</Navbar.Brand>
+        <Navbar.Brand href="/">Somos River</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -17,7 +17,7 @@ return (
             <Nav.Link href="#link">Tienda</Nav.Link>
             <NavDropdown title="Quienes somos?" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Redes</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
+            <NavDropdown.Item href="/contacto"> 
                 Contacto
             </NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Login</NavDropdown.Item>
