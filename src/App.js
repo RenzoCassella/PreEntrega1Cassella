@@ -1,59 +1,25 @@
-import img1 from "./assets/Images/Pelota River.webp";
-import img2 from "./assets/Images/Malla hombre.webp";
-import img3 from "./assets/Images/Botinero.webp";
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Contacto from './views/Contacto';
 import Home from './views/Home';
-
-const productos = [{
-  title: "Pelota", 
-  price: 500,
-  description: "Pelota river oficial",
-  id:1,
-  img: img1
-
-},
-{
-  title: "Malla", 
-  price: 500,
-  description: "Malla river oficial",
-  id:3,
-  img: img2
-  
-},
-{
-  title: "Botinero", 
-  price: 500,
-  description: "Botinero river oficial",
-  id:2,
-  img: img3
-
-},
-
-]
-
-
+import Productos from './views/Productos';
+import Detalle from './views/Detalle';
+import { productos } from './data/productos';
 
 function App() {
   return (
-    <>
-    <NavBar/>
-    
     <Router>
+      <NavBar/>
       <Routes> 
-      <Route path="/" element={<Home productos = {productos}/>} />
-      <Route path="/contacto" element={<Contacto />} />
-      <Route path="/contacto/:id" element={<Contacto />} />
-        
+        <Route path="/" element={<Home/>} />
+        <Route path="/indumentaria" element={<Productos categoria="Indumentaria" productos={productos.filter(p => p.categoria === 'Indumentaria')}/>} />
+        <Route path="/pelotas" element={<Productos categoria="Pelotas" productos={productos.filter(p => p.categoria === 'Pelotas')}/>} />
+        <Route path="/producto/:id" element={<Detalle />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/contacto/:id" element={<Contacto />} />
       </Routes>
     </Router>
-    </>
-
-  
-
-
   );
 }
 
